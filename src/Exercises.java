@@ -127,7 +127,27 @@ public class Exercises {
      * @return the head of the list with the first instance of the minimum value removed
      */
     public static ListNode removeMin(ListNode head) {
-        return null;
+        if (head == null || length(head) == 1) {
+            return null;
+        }
+
+        int minVal = min(head);
+
+        if (head.data == minVal) {
+            return head.next;
+        }
+
+        ListNode current = head;
+
+        while (current.next != null && current.next.data != minVal) {
+            current = current.next;
+        }
+
+        if (current.next != null) {
+            current.next = current.next.next;
+        }
+
+        return head;
     }
 
     /**
