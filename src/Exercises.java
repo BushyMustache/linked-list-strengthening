@@ -44,7 +44,7 @@ public class Exercises {
         ListNode newHead = new ListNode(toAdd);
 
         newHead.next = head;
-        
+
         return newHead;
     }
 
@@ -61,7 +61,19 @@ public class Exercises {
      * @return the head of the list with the last element removed
      */
     public static ListNode removeLast(ListNode head) {
-        return null;
+        if (head == null || length(head) == 1) {
+            return null;
+        }
+
+        ListNode current = head;
+
+        while (current.next.next != null) {
+            current = current.next;
+        }
+
+        current.next = null;
+
+        return head;
     }
 
     /**
